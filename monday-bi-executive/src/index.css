@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 8.5%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 8.5%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 0 100% 27%;
+    --primary-foreground: 0 0% 96%;
+
+    --secondary: 43 56% 52%;
+    --secondary-foreground: 0 0% 6%;
+
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 43 56% 52%;
+    --accent-foreground: 0 0% 6%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 96%;
+
+    --border: 0 0% 14%;
+    --input: 0 0% 13%;
+    --ring: 0 100% 27%;
+
+    --radius: 0.75rem;
+
+    --glow-red: 0 100% 27%;
+    --glow-gold: 43 56% 52%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 0 100% 27%;
+    --sidebar-primary-foreground: 0 0% 96%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 0 100% 27%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 8.5%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 8.5%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 0 100% 27%;
+    --primary-foreground: 0 0% 96%;
+    --secondary: 43 56% 52%;
+    --secondary-foreground: 0 0% 6%;
+    --muted: 0 0% 11%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 43 56% 52%;
+    --accent-foreground: 0 0% 6%;
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 96%;
+    --border: 0 0% 14%;
+    --input: 0 0% 13%;
+    --ring: 0 100% 27%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .card-glass {
+    background: linear-gradient(
+      145deg,
+      hsl(0 0% 9.5%) 0%,
+      hsl(0 0% 7%) 100%
+    );
+    border: 1px solid hsl(0 0% 14%);
+    box-shadow:
+      0 0 0 1px hsl(0 0% 10%),
+      0 4px 24px -4px hsl(0 0% 0% / 0.5),
+      0 1px 2px hsl(0 0% 0% / 0.3);
+  }
+
+  .card-glass-accent {
+    background: linear-gradient(
+      145deg,
+      hsl(0 0% 10%) 0%,
+      hsl(0 0% 7%) 100%
+    );
+    border: 1px solid hsl(43 56% 52% / 0.15);
+    box-shadow:
+      0 0 0 1px hsl(43 56% 52% / 0.05),
+      0 4px 24px -4px hsl(0 0% 0% / 0.5),
+      0 1px 2px hsl(0 0% 0% / 0.3);
+  }
+
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(0 100% 30%) 0%,
+      hsl(0 100% 22%) 100%
+    );
+    box-shadow:
+      0 1px 2px hsl(0 0% 0% / 0.4),
+      0 0 20px -8px hsl(0 100% 27% / 0.4);
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      hsl(43 56% 55%) 0%,
+      hsl(43 56% 42%) 100%
+    );
+    box-shadow:
+      0 1px 2px hsl(0 0% 0% / 0.4),
+      0 0 24px -6px hsl(43 56% 52% / 0.4);
+    color: hsl(0 0% 6%);
+  }
+
+  .input-field {
+    background: hsl(0 0% 7%);
+    border: 1px solid hsl(0 0% 16%);
+    transition: all 0.2s ease;
+  }
+
+  .input-field:focus {
+    border-color: hsl(0 100% 27% / 0.5);
+    box-shadow: 0 0 0 3px hsl(0 100% 27% / 0.1);
+    outline: none;
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, hsl(43 56% 58%), hsl(43 40% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider-gold {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(43 56% 52% / 0.3) 50%,
+      transparent 100%
+    );
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(hsl(0 0% 10%) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 10%) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(0 0% 20%);
+    border-radius: 10px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(43 56% 52% / 0.5);
+  }
+
+  /* For Firefox */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(0 0% 20%) transparent;
+  }
+}
